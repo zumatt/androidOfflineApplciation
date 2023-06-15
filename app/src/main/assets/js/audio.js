@@ -15,6 +15,8 @@ for (var i = 0; i < iconImg.length; i++) {
   iconImg[i].addEventListener("click", function () {
     if ((event.target.classList.contains('image')) == true) {
       removeClass();
+      document.getElementById('hoverBg').classList.remove('imageActiveBg');
+      document.getElementById('ambienteAlpino').classList.remove('alpinoOpacity'); //remove
     } else {
       removeClass();
       var imgName = event.target.getAttribute("content");
@@ -23,6 +25,16 @@ for (var i = 0; i < iconImg.length; i++) {
       this.classList.remove('icon');
       this.classList.add('image');
       this.classList.add('active');
+      if (slideIndex === 1){
+        this.classList.add('page2');
+        document.getElementById('hoverBg').classList.add('page2Bg');
+      } else if (slideIndex === 2){
+        this.classList.add('page3');
+        document.getElementById('hoverBg').classList.add('page3Bg');
+      }
+      document.getElementById('hoverBg').classList.add('imageActiveBg');
+      document.getElementById('ambienteAlpino').classList.add('alpinoOpacity'); //remove
+      console.log("The actual slide is: " + slideIndex);
       console.log('clicked ' + imgName);
     }
   });
@@ -49,6 +61,8 @@ for (var i = 0; i < mainAudio.length; i++) {
 }
 
 function removeClass() {
+    //document.getElementById('hoverBg').classList.remove('page2Bg');
+    //document.getElementById('hoverBg').classList.remove('page3Bg');
   for (var i = 0; i < iconImg.length; i++) {
     var iconType = iconImg[i].getAttribute('data-type');
     var iconSrc = "assets/icons/" + iconType + ".svg";
@@ -56,6 +70,8 @@ function removeClass() {
     iconImg[i].classList.remove('image');
     iconImg[i].classList.remove('active');
     iconImg[i].classList.add('icon');
+    iconImg[i].classList.remove('page2');
+    iconImg[i].classList.remove('page3');
   }
   for (var i = 0; i < mainAudio.length; i++) {
     mainAudio[i].classList.remove('active');
@@ -97,12 +113,21 @@ $(".btnAudio").on("click", function () {
   
     audio.addEventListener("ended", () => {
       isBusy = false;
+      document.getElementById('hoverBg').classList.remove('imageActiveBg'); //remove
+      document.getElementById('ambienteAlpino').classList.remove('alpinoOpacity'); //remove
       for (var i = 0; i < iconImg.length; i++) {
         var iconType = iconImg[i].getAttribute('data-type');
         var iconSrc = "assets/icons/" + iconType + ".svg";
         iconImg[i].style.backgroundImage = 'url(' + iconSrc + ')';
         iconImg[i].classList.remove('image');
         iconImg[i].classList.add('icon');
+        if (slideIndex === 1){
+          iconImg[i].classList.remove('page2');
+          document.getElementById('hoverBg').classList.remove('page2Bg');
+        } else if (slideIndex === 2){
+          iconImg[i].classList.remove('page3');
+          document.getElementById('hoverBg').classList.remove('page3Bg');
+        }
         console.log("Audio Finished");
         for (var j = 0; j < items.length; j++) {
           items[j].style.opacity = 0;

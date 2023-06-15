@@ -7,6 +7,10 @@ function openInfo() {
   document.getElementById("myInfoBox").style.width = "436px";
   document.getElementById("myInfoBox").style.left = "calc(100% - 436px)";
   document.getElementById("myInfoBox").style.overflow = "auto";
+  document.getElementById('hoverBg').classList.remove('page2Bg');
+  document.getElementById('hoverBg').classList.remove('page3Bg');
+  document.getElementById('hoverBg').classList.remove('imageActiveBg');
+  document.getElementById('ambienteAlpino').classList.remove('alpinoOpacity');
   closeBox.style.width = "calc(100% - 436px)";
   document.body.style.overflow = "hidden";
   audio.pause();

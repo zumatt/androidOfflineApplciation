@@ -221,11 +221,20 @@ body {
 }
 
 .animal-box .image {
-  width: 6.6em; /* 4.9em*/
-  height: 6.6em; /* 4.9em*/
+  /* LITTLE IMAGE OLD
+  width: 6.6em; 
+  height: 6.6em;
   position: absolute;
   z-index: 1;
   bottom: -2.4em;
+  */
+  width: 65vw;
+  height: 75vh;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, 10%);
+  z-index: 6;
 }
 
 /* X ANTONELLA DIMENSIONE IMMAGINI */
@@ -547,7 +556,7 @@ body {
   line-height: 1.1em;
   width: 100%;
   margin-bottom: 0.7em;
-  margin-top: 2.4em;
+  margin-top: 2em;
 }
 
 .info-subtitle {
@@ -581,7 +590,7 @@ body {
 }
 
 .icon-type:nth-child(-n + 2) {
-  margin-bottom: 1.8em;
+  margin-bottom: 1em;
 }
 
 .archivi-sonori {
@@ -699,4 +708,37 @@ body {
 
 tr:has(.image) {
   vertical-align: top;
+}
+
+.imageActiveBg {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: #f5f5f5a6;
+    z-index: 5;
+}
+
+
+.page2 {
+    transform: translate(103%, 10%) !important;
+}
+
+
+.page2Bg {
+    transform: translateX(100%);
+}
+
+.page3 {
+    transform: translate(257%, 10%) !important;
+}
+
+
+.page3Bg {
+    transform: translateX(200%);
+}
+
+.alpinoOpacity {
+    opacity: 40%;
 }
